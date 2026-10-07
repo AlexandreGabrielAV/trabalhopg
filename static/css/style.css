@@ -124,3 +124,8 @@ body {
     padding: 6px 12px;
     border-radius: 20px;
 }
+
+.login-card {
+    max-width: 420px;
+    margin: 0 auto;
+}

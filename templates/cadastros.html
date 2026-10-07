@@ -14,7 +14,12 @@
 </head>
 <body>
 
-    <!-- Topbar -->
+
+
+    <!------------------------------------>
+    <!--      BARRA DE NAVEGAÇÃO        -->
+    <!------------------------------------>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-header px-4 py-3 shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{{ url_for('inicio') }}">
@@ -51,7 +56,12 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
+
+
+    <!------------------------------------>
+    <!--      CONTEÚDO PRINCIPAL        -->
+    <!------------------------------------>
+
     <div class="container my-5 main-container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold text-dark m-0"><i class="bi bi-person-plus-fill text-primary me-2"></i>Cadastro de Usuário</h3>
@@ -61,10 +71,19 @@
         <div class="card-form">
             <form action="/cadastros" method="POST">
                 
-                <!-- SEÇÃO 1: DADOS PESSOAIS -->
+
+                <!------------------------------------>
+                <!--        DADOS PESSOAIS          -->
+                <!------------------------------------>
+
                 <div class="section-title">
                     <i class="bi bi-person-badge me-2 text-primary"></i>Dados Pessoais & Acesso
                 </div>
+
+
+                <!------------------------------------>
+                <!--        NOME COMPLETO           -->
+                <!------------------------------------>
                 
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
@@ -73,36 +92,60 @@
                             <label for="nome"><i class="bi bi-person me-1"></i> Nome Completo</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--            EMAIL               -->
+                <!------------------------------------>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com" required>
                             <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
                         </div>
                     </div>
+
+                
+                <!------------------------------------>
+                <!--             CELULAR            -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="celular" name="celular" placeholder="(00) 00000-0000">
                             <label for="celular"><i class="bi bi-telephone me-1"></i> Celular</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--           NASCIMENTO           -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" placeholder="Data de Nascimento">
                             <label for="data_nascimento"><i class="bi bi-calendar-event me-1"></i> Nascimento</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--              CPF               -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
                             <label for="cpf"><i class="bi bi-card-heading me-1"></i> CPF</label>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="senha" name="senha" placeholder="000.000.000-00">
-                            <label for="senha"><i class="bi bi-info-circle"></i> Senha</label>
-                        </div>
-                    </div>
+
+
+                <!------------------------------------>
+                <!--        NÍVEL DE ACESSO         -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <select class="form-select" id="nivel_acesso" name="nivel_acesso">
@@ -115,11 +158,22 @@
                     </div>
                 </div>
 
-                <!-- SEÇÃO 2: PREFERÊNCIAS -->
+
+
+
+                <!------------------------------------>
+                <!--          PREFERÊNCIAS          -->
+                <!------------------------------------>
+
                 <div class="section-title">
                     <i class="bi bi-sliders me-2 text-primary"></i>Preferências
                 </div>
                 
+
+                <!------------------------------------>
+                <!--      CATEGORIA FAVORITA        -->
+                <!------------------------------------>
+
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <div class="form-floating">
@@ -135,6 +189,12 @@
                             <label for="categoria_filme"><i class="bi bi-film me-1"></i> Categoria de Filme Favorito</label>
                         </div>
                     </div>
+
+                
+                <!------------------------------------>
+                <!--             IDIOMA             -->
+                <!------------------------------------>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             <select class="form-select" id="idioma_principal" name="idioma_principal">
@@ -148,11 +208,23 @@
                     </div>
                 </div>
 
-                <!-- SEÇÃO 3: ENDEREÇO -->
+
+
+
+
+                <!------------------------------------>
+                <!--           ENDEREÇO             -->
+                <!------------------------------------>
+
                 <div class="section-title">
                     <i class="bi bi-geo-alt me-2 text-primary"></i>Endereço
                 </div>
-                
+
+
+                <!------------------------------------>
+                <!--              CEP               -->
+                <!------------------------------------>
+
                 <div class="row g-3 mb-4">
                     <div class="col-md-3">
                         <div class="form-floating">
@@ -160,30 +232,60 @@
                             <label for="cep">CEP</label>
                         </div>
                     </div>
+
+                
+                <!------------------------------------>
+                <!--              RUA               -->
+                <!------------------------------------>
+
                     <div class="col-md-6">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, Avenida...">
                             <label for="endereco">Endereço</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--             NÚMERO             -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="numero" name="numero" placeholder="Número">
                             <label for="numero">Número</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--         COMPLEMENTO            -->
+                <!------------------------------------>
+
                     <div class="col-md-4">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Apt, Bloco...">
                             <label for="complemento">Complemento</label>
                         </div>
                     </div>
+
+                
+                <!------------------------------------>
+                <!--              CIDADE            -->
+                <!------------------------------------>
+
                     <div class="col-md-5">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
                             <label for="cidade">Cidade</label>
                         </div>
                     </div>
+
+
+                <!------------------------------------>
+                <!--            ESTADO              -->
+                <!------------------------------------>
+
                     <div class="col-md-3">
                         <div class="form-floating">
                             <select class="form-select" id="estado" name="estado">
@@ -197,7 +299,14 @@
                     </div>
                 </div>
 
-                <!-- Ações -->
+
+
+
+
+                <!------------------------------------>
+                <!--           BOTÕES               -->
+                <!------------------------------------>
+
                 <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
                     <button type="reset" class="btn btn-clear">
                         <i class="bi bi-eraser me-1"></i> Limpar
@@ -211,12 +320,20 @@
         </div>
     </div>
 
-    <!-- Rodapé -->
+
+
+
+
+    <!------------------------------------>
+    <!--         RODAPÉ DO SITE         -->
+    <!------------------------------------>
+
     <footer class="bg-header text-white-50 text-center py-3 mt-auto">
         <p class="mb-0 small">Site contruido por <strong>FilmBox LTDA</strong></p>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
