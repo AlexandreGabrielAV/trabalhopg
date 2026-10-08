@@ -11,7 +11,7 @@ def inicio():
 
 
 
-
+# --------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -19,19 +19,50 @@ def login():
 
 
 
-
+# --------------------
 @app.route('/cadastros', methods=['GET', 'POST'])
 def cadastro():
 
     return render_template('cadastros.html')
 
 
-
+# --------------------
 @app.route('/usuarios')
 def listagem():
     
     return render_template('usuarios.html')
 
+
+
+# --------------------
+@app.route('/filmes', methods=['GET', 'POST'])
+def filmes():
+    
+    return render_template('filmes.html')
+
+
+# --------------------
+@app.route('/listarfilmes', methods=['GET', 'POST'])
+def listar_filmes():
+    
+    return render_template('listar_filmes.html')
+
+
+
+
+
+
+@app.route('/aluguel', methods=['GET', 'POST'])
+def aluguel():
+    
+    return render_template('aluguel.html')
+
+
+# --------------------
+@app.route('/listaraluguel', methods=['GET', 'POST'])
+def listar_aluguel():
+    
+    return render_template('listar_aluguel.html')
 
 
 

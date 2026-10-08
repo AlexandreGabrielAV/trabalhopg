@@ -1,0 +1,122 @@
+{% extends 'index.html'%}
+
+
+{% block content %}
+    <!------------------------------------>
+    <!--      CONTEÚDO PRINCIPAL        -->
+    <!------------------------------------>
+
+    <div class="container my-5 main-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold text-dark m-0"><i class="bi bi-person-plus-fill text-primary me-2"></i>Cadastro de Filmes</h3>
+            <a href="{{ url_for('inicio') }}" class="btn btn-link text-decoration-none text-muted"><i class="bi bi-arrow-left me-1"></i> Voltar para o inicio</a>
+        </div>
+
+        <div class="card-form">
+            <form action="/filmes" method="POST">
+                
+
+                <!------------------------------------>
+                <!--        INFO FILMES             -->
+                <!------------------------------------>
+
+                <div class="section-title">
+                    <i class="bi bi-person-badge me-2 text-primary"></i>Informações sobre o Filme
+                </div>
+
+
+                <!------------------------------------>
+                <!--        NOME FILME              -->
+                <!------------------------------------>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Filme" required>
+                            <label for="nome"><i class="bi bi-person me-1"></i> Nome do Filme</label>
+                        </div>
+                    </div>
+
+            
+                <!------------------------------------>
+                <!--           LANÇAMENTO           -->
+                <!------------------------------------>
+
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="data_nascimento" name="lancamento" placeholder="Lançamento">
+                            <label for="data_nascimento"><i class="bi bi-calendar-event me-1"></i> Lançamento</label>
+                        </div>
+                    </div>
+
+
+                <!------------------------------------>
+                <!--           DURAÇÃO              -->
+                <!------------------------------------>
+
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="cpf" name="duracao" placeholder="000 min">
+                            <label for="cpf"><i class="bi bi-card-heading me-1"></i> Duração Minutos</label>
+                        </div>
+                    </div>
+
+
+                <!------------------------------------>
+                <!--      CATEGORIA FAVORITA        -->
+                <!------------------------------------>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="categoria_filme" name="categoria_filme">
+                                <option value="" selected>Selecione uma categoria...</option>
+                                <option value="Ação">Ação</option>
+                                <option value="Comédia">Comédia</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Ficção Científica">Ficção Científica</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Terror">Terror</option>
+                                <option value="Terror">Suspense</option>
+                            </select>
+                            <label for="categoria_filme"><i class="bi bi-film me-1"></i> Categoria de Filme Favorito</label>
+                        </div>
+                    </div>
+
+                
+                <!------------------------------------>
+                <!--             IDIOMA             -->
+                <!------------------------------------>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="idioma_principal" name="idioma_principal">
+                                <option value="" selected>Selecione o idioma...</option>
+                                <option value="Português">Português</option>
+                                <option value="Inglês">Inglês</option>
+                                <option value="Espanhol">Espanhol</option>
+                            </select>
+                            <label for="idioma_principal"><i class="bi bi-translate me-1"></i> Idioma Principal</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!------------------------------------>
+                <!--           BOTÕES               -->
+                <!------------------------------------>
+
+                <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+                    <button type="reset" class="btn btn-clear">
+                        <i class="bi bi-eraser me-1"></i> Limpar
+                    </button>
+                    <button type="submit" class="btn btn-save">
+                        <i class="bi bi-check-lg me-1"></i> Salvar Cadastro
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
