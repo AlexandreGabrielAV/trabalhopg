@@ -40,14 +40,14 @@ def listar_usuarios():
 @app.route('/filmes', methods=['GET', 'POST'])
 def inserir_filmes():
     
-    return render_template('filmes/cadastrar_filmes.html')
+    return render_template('filmes/filmes-form.html')
 
 
 # --------------------
 @app.route('/listarfilmes', methods=['GET', 'POST'])
 def listar_filmes():
     
-    return render_template('filmes/listar_filmes.html')
+    return render_template('filmes/filmes-listar.html')
 
 
 
@@ -57,14 +57,14 @@ def listar_filmes():
 @app.route('/aluguel', methods=['GET', 'POST'])
 def inserir_aluguel():
     
-    return render_template('alugueis/aluguel.html')
+    return render_template('alugueis/aluguel-form.html')
 
 
 # --------------------
 @app.route('/listaraluguel', methods=['GET', 'POST'])
 def listar_aluguel():
     
-    return render_template('alugueis/listar_aluguel.html')
+    return render_template('alugueis/aluguel-listar.html')
 
 
 
