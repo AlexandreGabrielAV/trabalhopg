@@ -7,45 +7,47 @@ app.secret_key = 'appnovo'
 @app.route('/')
 def inicio():
 
-    return render_template('index.html')
+    return render_template('login.html')
+
 
 
 
 # --------------------
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
 
-    return render_template('login.html')
+    return render_template('dashboard.html')
+
 
 
 
 # --------------------
 @app.route('/cadastros', methods=['GET', 'POST'])
-def cadastro():
+def inserir_usuarios():
 
-    return render_template('cadastros.html')
+    return render_template('usuarios/usuarios-form.html')
 
 
 # --------------------
-@app.route('/usuarios')
-def listagem():
+@app.route('/usuarios/listar')
+def listar_usuarios():
     
-    return render_template('usuarios.html')
+    return render_template('usuarios/usuarios-listar.html')
 
 
 
 # --------------------
 @app.route('/filmes', methods=['GET', 'POST'])
-def filmes():
+def inserir_filmes():
     
-    return render_template('filmes.html')
+    return render_template('filmes/cadastrar_filmes.html')
 
 
 # --------------------
 @app.route('/listarfilmes', methods=['GET', 'POST'])
 def listar_filmes():
     
-    return render_template('listar_filmes.html')
+    return render_template('filmes/listar_filmes.html')
 
 
 
@@ -53,16 +55,16 @@ def listar_filmes():
 
 
 @app.route('/aluguel', methods=['GET', 'POST'])
-def aluguel():
+def inserir_aluguel():
     
-    return render_template('aluguel.html')
+    return render_template('alugueis/aluguel.html')
 
 
 # --------------------
 @app.route('/listaraluguel', methods=['GET', 'POST'])
 def listar_aluguel():
     
-    return render_template('listar_aluguel.html')
+    return render_template('alugueis/listar_aluguel.html')
 
 
 

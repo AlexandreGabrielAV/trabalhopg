@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block titulo %}
+        FilmBox - Organize seus filmes
+        {% endblock %}
+        </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href={{ url_for('static' , filename='imgs/icone.png') }}>
+</head>
+<body>
+
+       
+    <div class="container my-5 main-container d-flex align-items-center justify-content-center">
+        {% block conteudo %}
+        <div class="card-form login-card w-100 shadow-lg">
+            
+
+            <!------------------------------------>
+            <!--      CABEÇALHO DO CARD         -->
+            <!------------------------------------>
+
+            <div class="text-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 60px; height: 60px;">
+                    <i class="bi bi-box-arrow-in-right fs-2"></i>
+                </div>
+                <h4 class="fw-bold text-dark m-0">Acessar FilmBox</h4>
+                <p class="text-muted small">Entre com suas credenciais para acessar</p>
+            </div>
+
+
+
+            <!------------------------------------>
+            <!--           FORMULÁRIO           -->
+            <!------------------------------------>
+
+            <form action="{{ url_for('inicio') }}" method="POST">
+                
+
+                <!------------------------------------>
+                <!--             EMAIL              -->
+                <!------------------------------------>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com" required>
+                    <label for="email"><i class="bi bi-envelope me-1"></i> E-mail</label>
+                </div>
+
+
+                <!------------------------------------>
+                <!--             SENHA              -->
+                <!------------------------------------>
+
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha" required>
+                    <label for="senha"><i class="bi bi-lock me-1"></i> Senha</label>
+                </div>
+
+
+                <!------------------------------------>
+                <!--        BOTÃO DE ENVIAR         -->
+                <!------------------------------------>
+
+                <button type="submit" class="btn btn-save w-100 py-3 text-uppercase fw-bold shadow-sm mb-3">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
+                </button>
+
+
+                <!------------------------------------>
+                <!--   REDIRECIONAR PARA CADASTRO   -->
+                <!------------------------------------>
+                
+                <div class="text-center mt-3">
+                    <span class="text-muted small">Ainda não possui uma conta?</span>
+                    <a href="{{ url_for('inserir_usuarios') }}" class="text-primary text-decoration-none fw-bold small ms-1">Cadastre-se</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+        {% endblock %}
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
