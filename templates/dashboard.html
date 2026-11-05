@@ -6,122 +6,178 @@ Dashboard
 
 
 {% block conteudo %}
-    <!------------------------------------>
-    <!--        BANNER PRINCIPAL        -->
-    <!------------------------------------>
 
-    <section class="hero-section text-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h1 class="display-3 fw-bold mb-3">FilmBox</h1>
-                    <p class="lead text-light mb-4">Organize seus filmes assistidos e preferidos aqui!</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="{{ url_for('inserir_usuarios') }}" class="btn btn-primary btn-lg fw-semibold shadow">
-                            <i class="bi bi-box-arrow-in-right me-2"></i>Começar Agora
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <main class="main-container">
+    
+    <!-- Título do Painel -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold fs-3 text-dark mb-1">Painel de Controle</h2>
+        <p class="text-muted small m-0">Visão geral dos aluguéis de filmes digitais e clientes registrados.</p>
+      </div>
+      <button class="btn-accent"><a class="dropdown-item" href="{{ url_for('inserir_usuarios') }}"><i class="bi bi-plus-lg me-1"></i> Novo Aluguel</a></button>
+    </div>
+
+    <!-- Linha 1: Cards de KPI Superiores -->
+    <div class="row g-3 mb-4">
+      
+      <!-- KPI 1: Faturamento (Card Escuro) -->
+      <div class="col-md-3">
+        <div class="kpi-card-dark">
+          <div class="kpi-title text-white-50">
+            Faturamento (Mês)
+            <i class="bi bi-currency-dollar text-white"></i>
+          </div>
+          <div class="kpi-value text-white">R$ 100</div>
         </div>
-    </section>
+      </div>
 
-
-
-    <!------------------------------------>
-    <!--      CATÁLOGO DE FILMES        -->
-    <!------------------------------------>
-
-    <main class="main-container container my-5">
-    <h2 class="section-title">Filmes Disponíveis no catálogo</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        
-
-        <!------------------------------------>
-        <!--     FILME 1 - INTERESTELAR     -->
-        <!------------------------------------>
-
-        <div class="col">
-            <div class="card movie-card h-100">
-                <img src="{{ url_for('static', filename='imgs/interestelar.jpg') }}" class="card-img-top movie-img" alt="Interestelar">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title text-dark font-weight-bold mb-2">Interestelar</h5>
-                        <span class="badge badge-category text-white mb-3">Ficção Científica</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <span class="text-muted small">Ano: 2014</span>
-                        <span class="text-warning font-weight-bold">⭐ 8.7</span>
-                    </div>
-                </div>
-            </div>
+      <!-- KPI 2: Aluguéis Ativos -->
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="kpi-title">
+            Aluguéis Ativos
+            <i class="bi bi-share-fill icon-orange"></i>
+          </div>
+          <div class="kpi-value">1</div>
         </div>
+      </div>
 
-
-        <!------------------------------------>
-        <!--       FILME 2 - BATMAN         -->
-        <!------------------------------------>
-
-        <div class="col">
-            <div class="card movie-card h-100">
-                <img src="{{ url_for('static', filename='imgs/batman.jpg') }}" class="card-img-top movie-img" alt="Batman">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title text-dark font-weight-bold mb-2">Batman: O Cavaleiro das Trevas</h5>
-                        <span class="badge badge-category text-white mb-3">Ação</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <span class="text-muted small">Ano: 2008</span>
-                        <span class="text-warning font-weight-bold">⭐ 9.0</span>
-                    </div>
-                </div>
-            </div>
+      <!-- KPI 3: Total Clientes -->
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="kpi-title">
+            Total Clientes
+            <i class="bi bi-hand-thumbs-up-fill icon-orange"></i>
+          </div>
+          <div class="kpi-value">2</div>
         </div>
+      </div>
 
-
-        <!------------------------------------>
-        <!--     FILME 3 - A ORIGEM         -->
-        <!------------------------------------>
-
-        <div class="col">
-            <div class="card movie-card h-100">
-                <img src="{{ url_for('static', filename='imgs/aorigem.jpg') }}" class="card-img-top movie-img" alt="A Origem">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title text-dark font-weight-bold mb-2">A Origem</h5>
-                        <span class="badge badge-category text-white mb-3">Suspense</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <span class="text-muted small">Ano: 2010</span>
-                        <span class="text-warning font-weight-bold">⭐ 8.8</span>
-                    </div>
-                </div>
-            </div>
+      <!-- KPI 4: Avaliação da Plataforma -->
+      <div class="col-md-3">
+        <div class="ui-card">
+          <div class="kpi-title">
+            Média Avaliações
+            <i class="bi bi-star-fill icon-orange"></i>
+          </div>
+          <div class="kpi-value">8,5</div>
         </div>
-
-        
-        <!------------------------------------>
-        <!--       FILME 4 - MATRIX         -->
-        <!------------------------------------>
-
-        <div class="col">
-            <div class="card movie-card h-100">
-                <img src="{{ url_for('static', filename='imgs/matrix.jpg') }}" class="card-img-top movie-img" alt="Matrix">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title text-dark font-weight-bold mb-2">Matrix</h5>
-                        <span class="badge badge-category text-white mb-3">Ficção Científica</span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <span class="text-muted small">Ano: 1999</span>
-                        <span class="text-warning font-weight-bold">⭐ 8.7</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
 
     </div>
-</main>
+
+    <!-- Linha 2: Gráfico e Indicador Donut -->
+    <div class="row g-3 mb-4">
+      
+      <!-- Gráfico de Aluguéis Digitais Mensais -->
+      <div class="col-lg-8">
+        <div class="ui-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold fs-6 m-0 text-dark">Locações Digitais Mensais</h5>
+            <span class="badge bg-light text-dark border">2026</span>
+          </div>
+          <!-- Representação Visual de Gráfico de Barras -->
+          <div style="height: 180px;" class="d-flex align-items-end justify-content-between pt-4 px-2 border-bottom">
+            <div class="bg-primary rounded-top" style="width: 7%; height: 40%;"></div>
+            <div class="bg-warning rounded-top" style="width: 7%; height: 65%;"></div>
+            <div class="bg-primary rounded-top" style="width: 7%; height: 80%;"></div>
+            <div class="bg-warning rounded-top" style="width: 7%; height: 50%;"></div>
+            <div class="bg-primary rounded-top" style="width: 7%; height: 90%;"></div>
+            <div class="bg-warning rounded-top" style="width: 7%; height: 70%;"></div>
+            <div class="bg-primary rounded-top" style="width: 7%; height: 100%;"></div>
+            <div class="bg-warning rounded-top" style="width: 7%; height: 60%;"></div>
+          </div>
+          <div class="d-flex justify-content-between text-muted small pt-2">
+            <span>JAN</span><span>FEV</span><span>MAR</span><span>ABR</span><span>MAI</span><span>JUN</span><span>JUL</span><span>AGO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Donut de Renovações -->
+      <div class="col-lg-4">
+        <div class="ui-card text-center d-flex flex-column justify-content-between">
+          <h5 class="fw-bold fs-6 text-dark text-start mb-3">Renovações Digitais</h5>
+          <div class="my-auto py-2">
+            <div class="mx-auto rounded-circle d-flex align-items-center justify-content-center border border-4 border-warning" style="width: 100px; height: 100px; border-top-color: #0f172a !important;">
+              <span class="fs-4 fw-bold">45%</span>
+            </div>
+          </div>
+          <ul class="list-unstyled text-muted small text-start my-3">
+            <li class="mb-1"><i class="bi bi-circle-fill text-warning me-2"></i> Retorno de Clientes</li>
+            <li class="mb-1"><i class="bi bi-circle-fill text-primary me-2"></i> Novos Assinantes</li>
+          </ul>
+          <button class="btn-accent w-100"><a class="dropdown-item" href="{{ url_for('listar_usuarios') }}">Ver Relatório</a></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Linha 3: Tabela de Aluguéis e Lista de Clientes -->
+    <div class="row g-3">
+      
+      <!-- Tabela de Aluguéis Ativos -->
+      <div class="col-lg-8">
+        <div class="ui-card">
+          <h5 class="fw-bold fs-6 text-dark mb-3">Aluguéis Digitais em Andamento</h5>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Filme</th>
+                  <th>Qualidade</th>
+                  <th>Acesso até</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-semibold">Usuário 1</td>
+                  <td>A Origem</td>
+                  <td><span class="badge-digital">Digital 4K</span></td>
+                  <td>08/11/2026</td>
+                  <td><span class="badge bg-success">Ativo</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Usuário 2</td>
+                  <td>Interstelar</td>
+                  <td><span class="badge-digital">Digital HD</span></td>
+                  <td>01/11/2026</td>
+                  <td><span class="badge bg-danger">Expirado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Útimos Clientes Cadastrados -->
+      <div class="col-lg-4">
+        <div class="ui-card">
+          <h5 class="fw-bold fs-6 text-dark mb-3">Últimos Clientes</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+              <div>
+                <h6 class="mb-0 fw-semibold fs-6">Usuário 2</h6>
+                <small class="text-muted">usuario2@email.com</small>
+              </div>
+              <span class="badge bg-light text-dark border">Ativo</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+              <div>
+                <h6 class="mb-0 fw-semibold fs-6">Usuário 1</h6>
+                <small class="text-muted">usuario1@email.com</small>
+              </div>
+              <span class="badge bg-light text-dark border">Ativo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
 
 {% endblock %}
 
