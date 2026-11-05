@@ -1,15 +1,27 @@
-from flask import Flask, render_template, url_for
+import os
+
+from dotenv import load_dotenv
+from flask import Flask, redirect, render_template, url_for
+from flask_wtf.csrf import CSRFProtect
+
+from db import execute_one
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'appnovo'
+app.secret_key = os.getenv('SECRET_KEY')
 
+# Liga a proteção CSRF: todo formulário POST do sistema vai precisar do token
+CSRFProtect(app)
+
+# ==============================================================================
+# PÁGINAS PRINCIPAIS
+# ==============================================================================
 
 @app.route('/')
 def inicio():
 
     return render_template('login.html')
-
-
 
 
 # --------------------
@@ -19,6 +31,9 @@ def dashboard():
     return render_template('dashboard.html')
 
 
+# ==============================================================================
+# USUÁRIOS
+# ==============================================================================
 
 
 # --------------------
@@ -35,6 +50,10 @@ def listar_usuarios():
     return render_template('usuarios/usuarios-listar.html')
 
 
+# ==============================================================================
+# FILMES
+# ==============================================================================
+
 
 # --------------------
 @app.route('/filmes', methods=['GET', 'POST'])
@@ -50,8 +69,9 @@ def listar_filmes():
     return render_template('filmes/filmes-listar.html')
 
 
-
-
+# ==============================================================================
+# ALUGUÉIS
+# ==============================================================================
 
 
 @app.route('/aluguel', methods=['GET', 'POST'])
@@ -66,6 +86,71 @@ def listar_aluguel():
     
     return render_template('alugueis/aluguel-listar.html')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ==============================================================================
+# TELAS DE ERROS
+# ==============================================================================
+
+@app.errorhandler(404)
+def pagina_nao_encontrada(erro):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def erro_no_servidor(erro):
+    return render_template('500.html'), 500
+
+
+# ==============================================================================
+# FINAL
+# ==============================================================================
 
 
 if __name__ == '__main__':
