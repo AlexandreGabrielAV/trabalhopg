@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, url_for
+from flask import Flask, redirect, render_template, url_for, request
 from flask_wtf.csrf import CSRFProtect
 
 from db import execute_one
@@ -85,6 +85,28 @@ def inserir_aluguel():
 def listar_aluguel():
     
     return render_template('alugueis/aluguel-listar.html')
+
+
+
+# ==============================================================================
+# PERFIS
+# ==============================================================================
+
+
+@app.route('/perfis/inserir', methods=['GET', 'POST'])
+def inserir_perfil():
+
+    if request.method == 'POST':
+        redirect(url_for(listar_perfis))
+
+    return render_template('perfis/perfis-form.html')
+
+
+@app.route('/perfis/listar')
+def listar_perfis():
+
+    return render_template('perfis/perfis-listar.html')
+
 
 
 
