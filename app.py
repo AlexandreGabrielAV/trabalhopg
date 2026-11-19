@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, url_for, request
 from flask_wtf.csrf import CSRFProtect
 
-from db import execute_one
+from db import execute_one, execute_query
 
 load_dotenv()
 
@@ -102,10 +102,14 @@ def inserir_perfil():
     return render_template('perfis/perfis-form.html')
 
 
-@app.route('/perfis/listar')
+@app.route('/perfis')
 def listar_perfis():
+    perfis = execute_query(
+        'SELECT id_perfil, nome, descricao, criado_em FROM perfis ORDER BY nome',
+        fetch=True
+    )
 
-    return render_template('perfis/perfis-listar.html')
+    return render_template('perfis/perfis-listar.html', perfis=perfis)
 
 
 

@@ -87,7 +87,7 @@
     <!--      CATÁLOGO DE FILMES        -->
     <!------------------------------------>
 
-    <main class="main-container">
+    <main>
         {% for tipo, mensagem in get_flashed_messages(with_categories=true) %}
     <div class="alert alert-{{ tipo }} alert-dismissible fade show" role="alert">
       {{ mensagem }}
