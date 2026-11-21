@@ -18,6 +18,7 @@ Cadastro
 
         <div class="card-form">
             <form action="/inserir_usuarios" method="POST">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
                 
 
                 <!------------------------------------>
