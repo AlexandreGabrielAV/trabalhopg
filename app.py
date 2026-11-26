@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, url_for, request, flash
+from flask import Flask, redirect, render_template, url_for, request, flash, abort
 from flask_wtf.csrf import CSRFProtect
 
 from db import execute_one, execute_query, execute_insert
@@ -133,8 +133,15 @@ def listar_perfis():
 
     return render_template('perfis/perfis-listar.html', perfis=perfis)
 
+@app.route('/perfis/<int:id_perfil>/editar', methods=['GET', 'POST'])
+def editar_perfil(id_perfil):
+    # Buscar os dados com o ID que veio na rota
+    perfil = execute_one(
+        'SELECT id_perfil, nome, descricao FROM perfis WHERE id_perfil = %s', (id_perfil,),
+    )
 
-
+    if perfil is None:
+        abort(404)
 
 
 
