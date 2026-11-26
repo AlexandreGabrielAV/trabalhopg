@@ -31,10 +31,24 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto ms-3">
+                    
+
+                    <!--                    -->
+                    <!-- BOTÃO DE DASHBOARD -->
+                    <!--                    -->
 
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ url_for('dashboard') }}">Início</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('dashboard') }}">Sobre o Projeto</a>
+                    </li>
+
+
+                    <!--                 -->
+                    <!-- BOTÃO DE USUÁRIO -->
+                    <!--                 -->
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button" data-bs-toggle="dropdown">
@@ -47,6 +61,19 @@
                     </li>
 
 
+                    <!--                 -->
+                    <!-- BOTÃO DE PERFIS -->
+                    <!--                 -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-people-fill me-1"></i> Perfis
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('listar_perfis') }}">Listar Perfis</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('inserir_perfil') }}">Novo Perfil</a></li>
+                        </ul>
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" id="filmesDropdown" role="button" data-bs-toggle="dropdown">
