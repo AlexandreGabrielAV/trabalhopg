@@ -121,7 +121,7 @@ def inserir_perfil():
                 raise
 
 
-    return render_template('perfis/perfis-form.html', nome=nome, descricao=descricao)
+    return render_template('perfis/perfis-form.html', acao='inserir', nome=nome, descricao=descricao)
 
 
 @app.route('/perfis')
@@ -142,6 +142,32 @@ def editar_perfil(id_perfil):
 
     if perfil is None:
         abort(404)
+
+    nome = perfil['nome']
+    descricao = perfil['descricao']
+
+    if request.method == 'POST':
+        nome = request.form.get('nome').strip()
+        descricao = request.form.get('descricao').strip()
+
+        try:
+            execute_query('''
+                UPDATE perfis SET
+                    nome = %s,
+                    descricao = %s
+                WHERE id_perfil = %s
+                         ''',
+                         (nome, descricao, id_perfil)
+                        )
+        except Error as erro:
+            if erro.errno == 1062:
+                flash('Já existe um perfil com este nome', 'danger')
+            else:
+                raise
+
+            
+
+    return render_template('perfis/perfis-form.html', acao='editar', id_perfil=id_perfil, nome=nome, descricao=descricao)
 
 
 
