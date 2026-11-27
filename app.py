@@ -159,6 +159,7 @@ def editar_perfil(id_perfil):
                          ''',
                          (nome, descricao, id_perfil)
                         )
+            return redirect(url_for('listar_perfis'))
         except Error as erro:
             if erro.errno == 1062:
                 flash('Já existe um perfil com este nome', 'danger')
@@ -168,6 +169,27 @@ def editar_perfil(id_perfil):
             
 
     return render_template('perfis/perfis-form.html', acao='editar', id_perfil=id_perfil, nome=nome, descricao=descricao)
+
+@app.route('/perfis/<int:id_perfil>/excluir', methods=['POST'])
+def excluir_perfil(id_perfil):
+    # Buscar os dados com o ID que veio na rota
+    perfil = execute_one(
+        'SELECT id_perfil, nome, descricao FROM perfis WHERE id_perfil = %s', (id_perfil,),
+    )
+
+    if perfil is None:
+        abort(404)
+
+    try:
+        execute_query('DELETE FROM perfis WHERE id_perfil = %s', (id_perfil,),)
+
+        flash(f'O perfil {perfil["nome"]} foi excluído', 'danger')
+    except Error as erro:
+            if erro.errno == 1451:
+                flash('PERFIL NÃO PODE SER EXCLUÍDO', 'danger')
+            else:
+                raise
+    return redirect(url_for('listar_perfis'))
 
 
 
